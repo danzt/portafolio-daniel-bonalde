@@ -838,4 +838,41 @@ section {
     animation: fadeInUp 0.6s ease-out;
 }
 
+/* ===== Language Toggle ===== */
+.lang-toggle {
+    background: var(--gradient);
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+    color: white;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: var(--transition);
+}
+
+.lang-toggle:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(21, 144, 255, 0.4);
+}
+
+/* ===== Profile Image ===== */
+.profile-image {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    border-radius: 20px;
+    box-shadow: var(--shadow);
+    object-fit: cover;
+    transition: var(--transition);
+}
+
+.profile-image:hover {
+    transform: scale(1.05);
+    box-shadow: 0 20px 40px rgba(21, 144, 255, 0.3);
+}
+
 

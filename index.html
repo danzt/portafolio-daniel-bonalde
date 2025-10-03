@@ -13,13 +13,16 @@
         <div class="container">
             <div class="nav-brand">Daniel Bonalde</div>
             <ul class="nav-menu">
-                <li><a href="#home" class="nav-link">Inicio</a></li>
-                <li><a href="#about" class="nav-link">Sobre Mí</a></li>
-                <li><a href="#experience" class="nav-link">Experiencia</a></li>
-                <li><a href="#skills" class="nav-link">Habilidades</a></li>
-                <li><a href="#achievements" class="nav-link">Logros</a></li>
-                <li><a href="#contact" class="nav-link">Contacto</a></li>
+                <li><a href="#home" class="nav-link" data-en="Home">Inicio</a></li>
+                <li><a href="#about" class="nav-link" data-en="About">Sobre Mí</a></li>
+                <li><a href="#experience" class="nav-link" data-en="Experience">Experiencia</a></li>
+                <li><a href="#skills" class="nav-link" data-en="Skills">Habilidades</a></li>
+                <li><a href="#achievements" class="nav-link" data-en="Achievements">Logros</a></li>
+                <li><a href="#contact" class="nav-link" data-en="Contact">Contacto</a></li>
             </ul>
+            <button id="langToggle" class="lang-toggle">
+                <i class="fas fa-globe"></i> <span id="currentLang">EN</span>
+            </button>
             <div class="hamburger">
                 <span></span>
                 <span></span>
@@ -53,9 +56,7 @@
                 </div>
             </div>
             <div class="hero-image">
-                <div class="image-placeholder">
-                    <i class="fas fa-code"></i>
-                </div>
+                <img src="images/profile.jpg" alt="Daniel Bonalde - Senior Frontend Developer" class="profile-image">
             </div>
         </div>
     </section>
@@ -135,6 +136,7 @@
                         <ul class="timeline-responsibilities">
                             <li>Bmkeros AC: Remote - Developer Frontend Senior</li>
                             <li>Flutter developer</li>
+                            <li>Backend development with Go (Golang)</li>
                             <li>Falcon - Venezuela</li>
                         </ul>
                     </div>
@@ -254,6 +256,7 @@
                     <div class="skill-tags">
                         <span class="skill-tag">JavaScript</span>
                         <span class="skill-tag">TypeScript</span>
+                        <span class="skill-tag">Go (Golang)</span>
                         <span class="skill-tag">HTML5</span>
                         <span class="skill-tag">CSS3</span>
                     </div>
