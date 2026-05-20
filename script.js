@@ -6,6 +6,9 @@ const navLinks = document.querySelectorAll('.nav-link');
 hamburger.addEventListener('click', () => {
     navMenu.classList.toggle('active');
     hamburger.classList.toggle('active');
+    const isOpen = navMenu.classList.contains('active');
+    hamburger.setAttribute('aria-expanded', isOpen);
+    hamburger.setAttribute('aria-label', isOpen ? 'Cerrar menú' : 'Abrir menú de navegación');
 });
 
 // Close menu when clicking on a link
@@ -118,21 +121,25 @@ contactForm.addEventListener('submit', (e) => {
 });
 
 // ===== Typing Effect for Hero Title =====
-const heroTitle = document.querySelector('.hero-title');
-if (heroTitle) {
-    const text = heroTitle.innerHTML;
-    heroTitle.innerHTML = '';
+const heroTitleEl = document.querySelector('.hero-title');
+if (heroTitleEl) {
+    const titles = {
+        es: 'Hola, soy Daniel Bonalde',
+        en: "Hi, I'm Daniel Bonalde"
+    };
+    const savedTypingLang = localStorage.getItem('preferredLanguage') || 'es';
+    const typingText = titles[savedTypingLang] || titles.es;
+    heroTitleEl.textContent = '';
     let index = 0;
-    
+
     function typeText() {
-        if (index < text.length) {
-            heroTitle.innerHTML += text.charAt(index);
+        if (index < typingText.length) {
+            heroTitleEl.textContent += typingText.charAt(index);
             index++;
             setTimeout(typeText, 50);
         }
     }
-    
-    // Start typing effect after a small delay
+
     setTimeout(typeText, 500);
 }
 
@@ -299,108 +306,86 @@ console.log('%c🚀 Desarrollado con HTML, CSS y JavaScript', 'color: #6366f1; f
 console.log('%c📧 Contáctame en: danztty@gmail.com', 'color: #00d4ff; font-size: 14px;');
 
 // ===== Language Translation =====
-const translations = {
+const siteTranslations = {
+    es: {
+        'nav-home':           'Inicio',
+        'nav-about':          'Sobre Mí',
+        'nav-experience':     'Experiencia',
+        'nav-skills':         'Habilidades',
+        'nav-achievements':   'Logros',
+        'nav-contact':        'Contacto',
+        'hero-title':         'Hola, soy Daniel Bonalde',
+        'hero-subtitle':      'Senior Full Stack Developer',
+        'hero-description':   'Con más de 8 años de experiencia creando interfaces web de alto rendimiento usando JavaScript, TypeScript, Vue, React y Svelte. Node.js, Go y Java Spring Boot.',
+        'hero-cta-primary':   'Contáctame',
+        'hero-cta-secondary': 'Ver Experiencia',
+        'nav-projects':       'Proyectos',
+        'projects-title':     'Proyectos',
+        'about-title':        'Sobre Mí',
+        'experience-title':   'Experiencia Profesional',
+        'skills-title':       'Habilidades Técnicas',
+        'achievements-title': 'Logros Destacados',
+        'education-title':    'Educación',
+        'contact-title':      'Contáctame',
+    },
     en: {
-        // Navigation
-        "Inicio": "Home",
-        "Sobre Mí": "About",
-        "Experiencia": "Experience",
-        "Habilidades": "Skills",
-        "Logros": "Achievements",
-        "Contacto": "Contact",
-        
-        // Hero Section
-        "Hola, soy Daniel Bonalde": "Hi, I'm Daniel Bonalde",
-        "Senior Frontend Developer": "Senior Frontend Developer",
-        "Con más de 8 años de experiencia creando interfaces web de alto rendimiento usando JavaScript, TypeScript, Vue, React y Svelte.": "With over 8 years of experience creating high-performance web interfaces using JavaScript, TypeScript, Vue, React, and Svelte.",
-        "Contáctame": "Contact Me",
-        "Ver Experiencia": "View Experience",
-        
-        // About Section
-        "Sobre Mí": "About Me",
-        "Años de Experiencia": "Years of Experience",
-        "Usuarios Mensuales": "Monthly Users",
-        "Mejora en Rendimiento": "Performance Improvement",
-        "Aumento en Engagement": "Engagement Increase",
-        
-        // Experience Section  
-        "Experiencia Profesional": "Professional Experience",
-        
-        // Skills Section
-        "Habilidades Técnicas": "Technical Skills",
-        "Lenguajes": "Languages",
-        "Frameworks": "Frameworks",
-        "Herramientas": "Tools",
-        "Idiomas": "Languages",
-        "Nativo": "Native",
-        "Intermedio": "Intermediate",
-        "Español": "Spanish",
-        
-        // Achievements Section
-        "Logros Destacados": "Notable Achievements",
-        "Sitio Web de Alto Tráfico": "High Traffic Website",
-        "Desarrollé un sitio web responsivo visualizado por más de 20,000 usuarios mensualmente.": "Developed a responsive website viewed by over 20,000 monthly users.",
-        "Entrega Anticipada de Proyecto": "Early Project Delivery",
-        "Lideré un equipo de 5 desarrolladores para entregar un proyecto 2 semanas antes de lo previsto.": "Led a team of 5 developers to deliver a project 2 weeks ahead of schedule.",
-        "Optimización de Rendimiento": "Performance Optimization",
-        "Reduje los tiempos de carga de página en un 50% con código optimizado y recursos eficientes.": "Reduced page load times by 50% with optimized code and efficient resources.",
-        "Mejora en Engagement": "Engagement Improvement",
-        "Incrementé el engagement de usuarios en un 30% a través de mejoras UX en proyectos frontend.": "Increased user engagement by 30% through UX improvements in frontend projects.",
-        
-        // Education Section
-        "Educación": "Education",
-        
-        // Contact Section
-        "Contáctame": "Contact Me",
-        "Información de Contacto": "Contact Information",
-        "Tu Nombre": "Your Name",
-        "Tu Email": "Your Email",
-        "Asunto": "Subject",
-        "Tu Mensaje": "Your Message",
-        "Enviar Mensaje": "Send Message",
-        
-        // Footer
-        "Todos los derechos reservados.": "All rights reserved.",
-        "Desarrollado con": "Developed with",
-        "y mucho": "and lots of",
-        
-        // Alert
-        "¡Gracias por tu mensaje! Se abrirá tu cliente de correo para enviar el mensaje.": "Thank you for your message! Your email client will open to send the message."
+        'nav-home':           'Home',
+        'nav-about':          'About',
+        'nav-experience':     'Experience',
+        'nav-skills':         'Skills',
+        'nav-achievements':   'Achievements',
+        'nav-contact':        'Contact',
+        'hero-title':         "Hi, I'm Daniel Bonalde",
+        'hero-subtitle':      'Senior Full Stack Developer',
+        'hero-description':   'With over 8 years of experience building high-performance web apps using JavaScript, TypeScript, Vue, React, and Svelte. Node.js, Go, and Java Spring Boot.',
+        'hero-cta-primary':   'Contact Me',
+        'hero-cta-secondary': 'View Experience',
+        'nav-projects':       'Projects',
+        'projects-title':     'Projects',
+        'about-title':        'About Me',
+        'experience-title':   'Professional Experience',
+        'skills-title':       'Technical Skills',
+        'achievements-title': 'Notable Achievements',
+        'education-title':    'Education',
+        'contact-title':      'Contact Me',
     }
 };
 
-let currentLang = 'es';
+const translationTargets = {
+    'nav-home':           'a[href="#home"].nav-link',
+    'nav-about':          'a[href="#about"].nav-link',
+    'nav-experience':     'a[href="#experience"].nav-link',
+    'nav-skills':         'a[href="#skills"].nav-link',
+    'nav-achievements':   'a[href="#achievements"].nav-link',
+    'nav-contact':        'a[href="#contact"].nav-link',
+    'hero-title':         '.hero-title',
+    'hero-subtitle':      '.hero-subtitle',
+    'hero-description':   '.hero-description',
+    'hero-cta-primary':   'a[href="#contact"].btn-primary',
+    'hero-cta-secondary': 'a[href="#experience"].btn-secondary',
+    'nav-projects':       'a[href="#projects"].nav-link',
+    'projects-title':     '#projects .section-title',
+    'about-title':        '#about .section-title',
+    'experience-title':   '#experience .section-title',
+    'skills-title':       '#skills .section-title',
+    'achievements-title': '#achievements .section-title',
+    'education-title':    '#education .section-title',
+    'contact-title':      '#contact .section-title',
+};
+
+let currentLang = localStorage.getItem('preferredLanguage') || 'es';
 
 function translatePage(lang) {
-    const elements = document.querySelectorAll('[data-translate]');
-    
-    elements.forEach(element => {
-        const key = element.getAttribute('data-translate');
-        if (translations[lang] && translations[lang][key]) {
-            element.textContent = translations[lang][key];
-        }
+    const t = siteTranslations[lang];
+    Object.entries(translationTargets).forEach(([key, selector]) => {
+        const el = document.querySelector(selector);
+        if (el && t[key]) el.textContent = t[key];
     });
-    
-    // Update nav links
-    document.querySelectorAll('.nav-link').forEach(link => {
-        const enText = link.getAttribute('data-en');
-        if (lang === 'en' && enText) {
-            link.textContent = enText;
-        } else {
-            link.textContent = link.getAttribute('data-es') || link.textContent;
-        }
-    });
-    
-    // Translate all text content
-    if (lang === 'en') {
-        document.body.innerHTML = document.body.innerHTML.replace(/Hola, soy Daniel Bonalde/g, "Hi, I'm Daniel Bonalde");
-    } else {
-        document.body.innerHTML = document.body.innerHTML.replace(/Hi, I'm Daniel Bonalde/g, "Hola, soy Daniel Bonalde");
-    }
-    
     currentLang = lang;
-    document.getElementById('currentLang').textContent = lang.toUpperCase();
+    const currentLangEl = document.getElementById('currentLang');
+    if (currentLangEl) currentLangEl.textContent = lang === 'es' ? 'EN' : 'ES';
     localStorage.setItem('preferredLanguage', lang);
+    document.documentElement.lang = lang;
 }
 
 // Language Toggle Button
@@ -409,18 +394,22 @@ if (langToggle) {
     langToggle.addEventListener('click', () => {
         const newLang = currentLang === 'es' ? 'en' : 'es';
         translatePage(newLang);
-        // Reload page to apply translations properly
-        window.location.reload();
     });
 }
 
-// Load preferred language on page load
-const savedLang = localStorage.getItem('preferredLanguage');
-if (savedLang === 'en') {
-    // Will be implemented with data attributes in HTML
-    document.getElementById('currentLang').textContent = 'ES';
+// Apply saved language on load (except hero title — handled by typing effect)
+const currentLangEl = document.getElementById('currentLang');
+if (currentLang === 'en') {
+    const t = siteTranslations.en;
+    Object.entries(translationTargets).forEach(([key, selector]) => {
+        if (key === 'hero-title') return;
+        const el = document.querySelector(selector);
+        if (el && t[key]) el.textContent = t[key];
+    });
+    if (currentLangEl) currentLangEl.textContent = 'ES';
+    document.documentElement.lang = 'en';
 } else {
-    document.getElementById('currentLang').textContent = 'EN';
+    if (currentLangEl) currentLangEl.textContent = 'EN';
 }
 
 

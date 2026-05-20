@@ -6,6 +6,9 @@
     <title>Daniel Bonalde - Senior Developer Full Stack</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&display=swap" rel="stylesheet">
 </head>
 <body>
     <!-- Navigation -->
@@ -17,17 +20,18 @@
                 <li><a href="#about" class="nav-link" data-en="About">Sobre Mí</a></li>
                 <li><a href="#experience" class="nav-link" data-en="Experience">Experiencia</a></li>
                 <li><a href="#skills" class="nav-link" data-en="Skills">Habilidades</a></li>
+                <li><a href="#projects" class="nav-link" data-en="Projects">Proyectos</a></li>
                 <li><a href="#achievements" class="nav-link" data-en="Achievements">Logros</a></li>
                 <li><a href="#contact" class="nav-link" data-en="Contact">Contacto</a></li>
             </ul>
             <button id="langToggle" class="lang-toggle">
                 <i class="fas fa-globe"></i> <span id="currentLang">EN</span>
             </button>
-            <div class="hamburger">
+            <button class="hamburger" aria-label="Abrir menú de navegación" aria-expanded="false">
                 <span></span>
                 <span></span>
                 <span></span>
-            </div>
+            </button>
         </div>
     </nav>
 
@@ -40,24 +44,28 @@
                 </h1>
                 <h2 class="hero-subtitle">Senior Full Stack Developer</h2>
                 <p class="hero-description">
-                    Con más de 8 años de experiencia creando interfaces web de alto rendimiento usando JavaScript, TypeScript, Vue, React y Svelte.
-                    Node, Go, Java Spreen boot.
+                    Con más de 8 años de experiencia creando interfaces web de alto rendimiento usando JavaScript, TypeScript, Vue, React y Svelte. Node.js, Go y Java Spring Boot.
                 </p>
                 <div class="hero-buttons">
                     <a href="#contact" class="btn btn-primary">Contáctame</a>
                     <a href="#experience" class="btn btn-secondary">Ver Experiencia</a>
                 </div>
                 <div class="hero-social">
-                    <a href="mailto:danztty@gmail.com" class="social-link">
+                    <a href="https://github.com/danzt" class="social-link" aria-label="GitHub" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="mailto:danztty@gmail.com" class="social-link" aria-label="Email">
                         <i class="fas fa-envelope"></i>
                     </a>
-                    <a href="tel:+584246706253" class="social-link">
+                    <a href="tel:+584246706253" class="social-link" aria-label="Teléfono">
                         <i class="fas fa-phone"></i>
                     </a>
                 </div>
             </div>
             <div class="hero-image">
-                <img src="images/profile.png" alt="Daniel Bonalde - Senior Frontend Developer" class="profile-image">
+                <div class="profile-image-wrapper">
+                    <img src="images/profile.png" alt="Daniel Bonalde - Senior Full Stack Developer" class="profile-image">
+                </div>
             </div>
         </div>
     </section>
@@ -135,10 +143,8 @@
                             <i class="fas fa-map-marker-alt"></i> Falcon - Venezuela
                         </div>
                         <ul class="timeline-responsibilities">
-                            <li>Bmkeros AC: Remote - Developer Frontend Senior</li>
                             <li>Flutter developer</li>
                             <li>Backend development with Go (Golang)</li>
-                            <li>Falcon - Venezuela</li>
                         </ul>
                     </div>
                 </div>
@@ -185,15 +191,12 @@
                     <div class="timeline-content">
                         <div class="timeline-header">
                             <h3>QA Engineer</h3>
-                            <span class="timeline-company">QA Engineer</span>
+                            <span class="timeline-company">Remoto</span>
                             <span class="timeline-date">Junio 2022 - Noviembre 2022</span>
                         </div>
                         <div class="timeline-location">
                             <i class="fas fa-map-marker-alt"></i> México
                         </div>
-                        <ul class="timeline-responsibilities">
-                            <li>Remote - (6 months) México</li>
-                        </ul>
                     </div>
                 </div>
 
@@ -316,6 +319,124 @@
         </div>
     </section>
 
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2 class="section-title">Proyectos</h2>
+            <div class="projects-grid">
+
+                <div class="project-card">
+                    <div class="project-img-container">
+                        <div class="project-img-placeholder"><i class="fas fa-fire"></i></div>
+                        <img src="images/projects/pentecoste.jpg" alt="Website Pentecostés 2025" class="project-img" onerror="this.style.display='none'">
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">Pentecostés 2025</h3>
+                        <p class="project-description">Landing page para el evento Pentecostés 2025. Animaciones fluidas con GSAP y scroll suave con Lenis.</p>
+                        <div class="project-stack">
+                            <span class="project-tag">React</span>
+                            <span class="project-tag">TailwindCSS</span>
+                            <span class="project-tag">GSAP</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://website-pentecoste-2025.vercel.app" class="project-link project-link--live" target="_blank" rel="noopener noreferrer">
+                                <i class="fas fa-external-link-alt"></i> Ver sitio
+                            </a>
+                            <a href="https://github.com/danzt/website-Pentecoste-2025" class="project-link project-link--github" target="_blank" rel="noopener noreferrer">
+                                <i class="fab fa-github"></i> Código
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-img-container">
+                        <div class="project-img-placeholder"><i class="fas fa-church"></i></div>
+                        <img src="images/projects/sion.jpg" alt="Website Iglesia Sion" class="project-img" onerror="this.style.display='none'">
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">Iglesia Sion</h3>
+                        <p class="project-description">Sitio web oficial de la Iglesia Evangélica Pentecostal Sion Venezuela. Diseño moderno y responsivo.</p>
+                        <div class="project-stack">
+                            <span class="project-tag">JavaScript</span>
+                            <span class="project-tag">CSS3</span>
+                            <span class="project-tag">HTML5</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://iglesiasionve.com" class="project-link project-link--live" target="_blank" rel="noopener noreferrer">
+                                <i class="fas fa-external-link-alt"></i> Ver sitio
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-img-container">
+                        <div class="project-img-placeholder"><i class="fas fa-music"></i></div>
+                        <img src="images/projects/isaac.jpg" alt="Isaac Music" class="project-img" onerror="this.style.display='none'">
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">Isaac Music</h3>
+                        <p class="project-description">Página web para productor musical con animaciones cinematográficas usando Framer Motion.</p>
+                        <div class="project-stack">
+                            <span class="project-tag">React</span>
+                            <span class="project-tag">Framer Motion</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://isaac-music.vercel.app" class="project-link project-link--live" target="_blank" rel="noopener noreferrer">
+                                <i class="fas fa-external-link-alt"></i> Ver sitio
+                            </a>
+                            <a href="https://github.com/danzt/isaac-music" class="project-link project-link--github" target="_blank" rel="noopener noreferrer">
+                                <i class="fab fa-github"></i> Código
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-img-container">
+                        <div class="project-img-placeholder"><i class="fas fa-chart-line"></i></div>
+                        <img src="images/projects/sionerp.jpg" alt="SionERP Dashboard" class="project-img" onerror="this.style.display='none'">
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">SionERP</h3>
+                        <p class="project-description">ERP eclesiástico completo con arquitectura modular. 5 dashboards por nivel jerárquico, analytics de discipulado, zonas con mapa interactivo, 635+ usuarios y PWA con geolocalización.</p>
+                        <div class="project-stack">
+                            <span class="project-tag">React</span>
+                            <span class="project-tag">TypeScript</span>
+                            <span class="project-tag">Go</span>
+                            <span class="project-tag">Supabase</span>
+                        </div>
+                        <div class="project-links">
+                            <span class="project-badge"><i class="fas fa-lock"></i> Privado</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-img-container">
+                        <div class="project-img-placeholder"><i class="fas fa-hands-helping"></i></div>
+                        <img src="images/projects/fundasion.jpg" alt="Fundasion Website" class="project-img" onerror="this.style.display='none'">
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">FundaSion</h3>
+                        <p class="project-description">Sitio institucional de Fundación La Iglesia Responde Hoy. Programas sociales, timeline histórico desde 2010 e integración con SionERP.</p>
+                        <div class="project-stack">
+                            <span class="project-tag">React</span>
+                            <span class="project-tag">TypeScript</span>
+                            <span class="project-tag">TailwindCSS</span>
+                            <span class="project-tag">Framer Motion</span>
+                        </div>
+                        <div class="project-links">
+                            <span class="project-badge"><i class="fas fa-lock"></i> Privado</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
     <!-- Achievements Section -->
     <section id="achievements" class="achievements">
         <div class="container">
@@ -390,11 +511,18 @@
                         <i class="fas fa-phone"></i>
                         <a href="tel:+584246706253">+58 424 670 6253</a>
                     </div>
+                    <div class="contact-item">
+                        <i class="fab fa-github"></i>
+                        <a href="https://github.com/danzt" target="_blank" rel="noopener noreferrer">github.com/danzt</a>
+                    </div>
                     <div class="social-links">
-                        <a href="mailto:danztty@gmail.com" class="social-btn">
+                        <a href="https://github.com/danzt" class="social-btn" aria-label="GitHub" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="mailto:danztty@gmail.com" class="social-btn" aria-label="Email">
                             <i class="fas fa-envelope"></i>
                         </a>
-                        <a href="tel:+584246706253" class="social-btn">
+                        <a href="tel:+584246706253" class="social-btn" aria-label="Teléfono">
                             <i class="fas fa-phone"></i>
                         </a>
                     </div>
@@ -423,7 +551,7 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2024 Daniel Bonalde. Todos los derechos reservados.</p>
+            <p>&copy; 2025 Daniel Bonalde. Todos los derechos reservados.</p>
             <p>Desarrollado con <i class="fas fa-heart"></i> y mucho <i class="fas fa-coffee"></i></p>
         </div>
     </footer>
